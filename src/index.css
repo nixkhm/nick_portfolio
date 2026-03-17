@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+@keyframes geoIn {
+  from {
+    opacity: 0;
+    transform: scale(0.72) rotate(-8deg);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+:root {
+  --nav-h: 72px;
+  --strip-h: 78px;
+  --geo-size: 176px;
+}
+
+@media (max-width: 1024px) {
+  :root {
+    --nav-h: 62px;
+    --strip-h: 68px;
+    --geo-size: 136px;
+  }
+}
+
+@media (max-width: 640px) {
+  :root {
+    --nav-h: 52px;
+    --strip-h: 56px;
+    --geo-size: 100px;
+  }
+}
+
+.pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 24px;
+  padding: 6px 14px;
+  font-size: clamp(13px, 1.1vw, 15px);
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background 0.18s,
+    border-color 0.18s;
+}
+.pill:hover {
+  background: rgba(255, 255, 255, 0.22);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+.pill-ai {
+  background: rgba(82, 217, 106, 0.12);
+  border-color: rgba(82, 217, 106, 0.35);
+}
+.pill-ai:hover {
+  background: rgba(82, 217, 106, 0.22);
+  border-color: rgba(82, 217, 106, 0.6);
+}
