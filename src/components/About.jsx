@@ -4,7 +4,7 @@ import { skillGroups } from '../data/skills';
 import { fadeUp, geoIn, barGrow } from '../utils/animations';
 import { Green } from './Hero';
 import aboutMe1 from '../assets/about_me/about_me_1.jpeg';
-import aboutMe2 from '../assets/about_me/about_me_2.JPG';
+import aboutMe2 from '../assets/about_me/about_me_2.jpg';
 import '../styles/About.css';
 
 const ABOUT_PHOTOS = [aboutMe1, aboutMe2];
