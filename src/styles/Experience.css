@@ -1,0 +1,259 @@
+/* ── Section ───────────────────────────────────────────────────── */
+.exp-section {
+  background-color: #5b9bd8;
+  padding: clamp(32px, 4vw, 52px) clamp(16px, 5vw, 48px);
+}
+
+/* ── Geo ───────────────────────────────────────────────────────── */
+.exp-geo-tl {
+  top: clamp(12px, 2vw, 24px);
+  width: var(--geo-size);
+  height: var(--geo-size);
+}
+
+.exp-geo-br {
+  bottom: clamp(12px, 2vw, 24px);
+  width: var(--geo-size);
+  height: var(--geo-size);
+}
+
+/* ── Section header ────────────────────────────────────────────── */
+.exp-header {
+  margin-bottom: clamp(24px, 3vw, 40px);
+}
+
+.exp-label {
+  font-size: clamp(10px, 0.9vw, 13px);
+  letter-spacing: 3px;
+  color: #52d96a;
+  margin-bottom: 6px;
+}
+
+.exp-h2 {
+  font-family: 'Exo 2', sans-serif;
+  font-size: clamp(1.4rem, 2.8vw, 2.4rem);
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  line-height: 1.1;
+}
+
+.exp-header-bar {
+  height: 3px;
+  background: #52d96a;
+  border-radius: 2px;
+  margin: 10px auto 0;
+}
+
+/* ── Main card ─────────────────────────────────────────────────── */
+.exp-card {
+  max-width: 960px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  min-height: clamp(360px, 48vh, 500px);
+}
+
+/* ── Left timeline nav ─────────────────────────────────────────── */
+.exp-nav {
+  width: clamp(180px, 23vw, 260px);
+  flex-shrink: 0;
+  background: rgba(0, 0, 0, 0.12);
+  border-right: 1px solid rgba(255, 255, 255, 0.15);
+  padding: clamp(16px, 2vw, 24px) clamp(12px, 1.5vw, 20px);
+  display: flex;
+  flex-direction: column;
+}
+
+.exp-nav-inner {
+  position: relative;
+  flex: 1;
+}
+
+.exp-timeline-line {
+  position: absolute;
+  left: 7px;
+  top: 6px;
+  bottom: 6px;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* ── Timeline items ────────────────────────────────────────────── */
+.exp-nav-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: clamp(16px, 2.5vw, 24px);
+  cursor: pointer;
+  padding: 4px 0;
+}
+
+.exp-nav-item:last-child {
+  margin-bottom: 0;
+}
+
+.exp-nav-dot {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 3px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  box-shadow: none;
+  transition: all 0.2s;
+}
+
+.exp-nav-dot.is-active {
+  background: #52d96a;
+  border-color: #52d96a;
+  box-shadow: 0 0 0 3px rgba(82, 217, 106, 0.2);
+}
+
+.exp-nav-company {
+  font-size: clamp(13px, 1.1vw, 15px);
+  font-weight: 600;
+  line-height: 1.3;
+  color: rgba(255, 255, 255, 0.45);
+  transition: color 0.2s;
+}
+
+.exp-nav-company.is-active {
+  color: #fff;
+}
+
+.exp-nav-role {
+  font-size: clamp(11px, 0.9vw, 13px);
+  margin-top: 2px;
+  line-height: 1.3;
+  color: rgba(255, 255, 255, 0.3);
+  transition: color 0.2s;
+}
+
+.exp-nav-role.is-active {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* ── Education footer ──────────────────────────────────────────── */
+.exp-edu {
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.exp-edu-label {
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #52d96a;
+  margin-bottom: 3px;
+}
+
+.exp-edu-school {
+  font-size: clamp(13px, 1.1vw, 15px);
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.exp-edu-degree {
+  font-size: clamp(11px, 0.8vw, 12px);
+  color: rgba(255, 255, 255, 0.38);
+}
+
+.exp-edu-gpa {
+  font-size: clamp(11px, 0.9vw, 13px);
+  color: #52d96a;
+  margin-top: 2px;
+}
+
+/* ── Right content panel ───────────────────────────────────────── */
+.exp-panel {
+  flex: 1;
+  padding: clamp(20px, 3vw, 36px);
+  min-width: 0;
+}
+
+.exp-content-company {
+  font-size: clamp(10px, 0.9vw, 12px);
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #52d96a;
+  margin-bottom: 4px;
+}
+
+.exp-content-role {
+  font-family: 'Exo 2', sans-serif;
+  font-size: clamp(1.1rem, 2vw, 1.6rem);
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+.exp-content-date {
+  font-size: clamp(10px, 0.85vw, 12px);
+  color: rgba(255, 255, 255, 0.38);
+  letter-spacing: 0.5px;
+  margin: clamp(4px, 0.5vw, 8px) 0 clamp(12px, 1.5vw, 20px);
+}
+
+/* ── Bullets ───────────────────────────────────────────────────── */
+.exp-bullet {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+  align-items: flex-start;
+}
+
+.exp-bullet-arrow {
+  color: #52d96a;
+  font-size: 10px;
+  margin-top: 4px;
+  flex-shrink: 0;
+}
+
+.exp-bullet-text {
+  font-size: clamp(0.8rem, 1.1vw, 0.95rem);
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.68;
+}
+
+/* ── Tags ──────────────────────────────────────────────────────── */
+.exp-tags-label {
+  font-size: clamp(10px, 0.8vw, 11px);
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+  margin-top: clamp(10px, 1.5vw, 18px);
+  margin-bottom: 6px;
+}
+
+.exp-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+/* ── Experience pill ───────────────────────────────────────────── */
+.exp-pill-sm {
+  font-size: clamp(10px, 0.8vw, 11px);
+  padding: 3px 10px;
+  transition:
+    background 0.18s,
+    border-color 0.18s,
+    color 0.18s;
+}
+
+.exp-pill-ico {
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 7px;
+  font-weight: 700;
+  line-height: 1;
+  transition: background 0.18s;
+}
