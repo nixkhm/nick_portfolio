@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { fadeUp, geoIn, barGrow } from '../utils/animations';
 import { LINKEDIN_URL } from '../utils/constants';
+import resumePDF from '../assets/resume/Nicholas_Masters_Software_Engineer_Resume_Portfolio.pdf';
 import '../styles/Contact.css';
 
 function GeoTopLeft() {
@@ -87,7 +88,7 @@ const LinkedInLogo = () => (
 );
 
 const EMAIL = import.meta.env.VITE_EMAIL;
-const RESUME_PATH = null;
+const RESUME_PATH = resumePDF;
 
 function Toast({ message, visible }) {
   return (
@@ -183,7 +184,7 @@ function ResumeModal({ onClose, onToast }) {
   }, [onClose]);
 
   function viewResume() {
-    window.open(RESUME_PATH, '_blank');
+    window.open(RESUME_PATH + '#zoom=130', '_blank');
     onToast('Opening resume PDF ↗');
   }
 
@@ -226,15 +227,18 @@ function ResumeModal({ onClose, onToast }) {
         </div>
 
         <div className="con-resume-preview">
-          <span className="con-resume-preview-emoji">📄</span>
-          <span className="con-resume-preview-text">Resume coming soon</span>
+          <embed
+            src={RESUME_PATH + '#navpanes=0&view=Fit'}
+            type="application/pdf"
+            className="con-resume-iframe"
+          />
         </div>
 
         <div className="con-resume-btns">
-          <button disabled className="con-btn-disabled con-btn-disabled-dl">
+          <button className="con-btn-disabled con-btn-disabled-dl" onClick={downloadResume}>
             ⬇ Download PDF
           </button>
-          <button disabled className="con-btn-disabled con-btn-disabled-view">
+          <button className="con-btn-disabled con-btn-disabled-view" onClick={viewResume}>
             ↗ View Full Screen
           </button>
         </div>
