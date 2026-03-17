@@ -1,0 +1,48 @@
+export const experiences = [
+  {
+    id: 'assoc',
+    company: 'EverBright',
+    role: 'Associate Software Engineer',
+    date: 'July 2024 → February 2026',
+    bullets: [
+      'Maintained full-stack Django/DRF and React/TypeScript application for solar financing provider.',
+      'Implemented guardrails to de-risk sales platform and prevent fraudulent deal exposure.',
+      'Designed and built third-party integration to extract and process customer utility data.',
+      'Developed automated version-controlled rules engine to cut manual exception handling.',
+    ],
+    tags: [
+      'Django',
+      'Python',
+      'React',
+      'TypeScript',
+      'PostgreSQL',
+      'FastAPI',
+      'Pydantic',
+      'Redis',
+      'Alembic',
+      'Pandas',
+      'Windsurf',
+    ],
+  },
+  {
+    id: 'intern',
+    company: 'EverBright',
+    role: 'Software Engineer Intern',
+    date: 'May 2023 → August 2023',
+    bullets: [
+      'Worked with Energy team to more accurately model homeowner consumption data for system design.',
+      'Introduced multi-scenario analysis workflows by migrating data model into one-to-many structure.',
+      'Embedded first React component into existing Angular app, enabling cross-framework architecture.',
+    ],
+    tags: [
+      'Django',
+      'Python',
+      'React',
+      'TypeScript',
+      'Angular',
+      'Docker',
+      'AWS',
+      'Git',
+    ],
+  },
+];
