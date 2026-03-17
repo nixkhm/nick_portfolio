@@ -1,0 +1,279 @@
+/* ── Green highlight span ──────────────────────────────────────── */
+.hero-green {
+  color: #52d96a;
+  font-weight: 700;
+}
+
+/* ── Section ───────────────────────────────────────────────────── */
+.hero-section {
+  background-color: #5b9bd8;
+}
+
+/* ── Geo decorations ───────────────────────────────────────────── */
+.hero-geo {
+  width: var(--geo-size);
+  height: var(--geo-size);
+  animation: geoIn 0.32s cubic-bezier(0.34, 1.56, 0.64, 1) var(--geo-delay, 0s)
+    both;
+}
+.hero-geo-tl {
+  --geo-delay: 0.04s;
+}
+.hero-geo-tr {
+  --geo-delay: 0.07s;
+}
+.hero-geo-bl {
+  --geo-delay: 0.1s;
+  bottom: var(--strip-h);
+}
+.hero-geo-br {
+  --geo-delay: 0.07s;
+  bottom: var(--strip-h);
+}
+
+/* ── Nav ───────────────────────────────────────────────────────── */
+.nav-bg {
+  background-color: #3a7ab5;
+  transform-origin: top;
+}
+
+.nav-padding {
+  padding: 0 clamp(12px, 3vw, 52px);
+}
+
+.nav-logo {
+  color: #fff;
+  text-decoration: none;
+  font-size: clamp(16px, 1.5vw, 22px);
+  letter-spacing: 0.5px;
+  transition: color 0.2s;
+}
+.nav-logo:hover {
+  color: #52d96a;
+}
+
+.nav-links-gap {
+  gap: clamp(6px, 1.6vw, 32px);
+}
+
+.nav-link {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-size: clamp(13px, 1.1vw, 17px);
+  font-family: 'Exo 2', sans-serif;
+  transition: color 0.2s;
+}
+.nav-link:hover {
+  color: #52d96a;
+}
+
+.nav-link-label {
+  overflow: hidden;
+  white-space: nowrap;
+  display: inline-block;
+}
+
+.nav-link-icon {
+  overflow: hidden;
+  display: inline-flex;
+  position: absolute;
+}
+.nav-link-icon.is-scrolled {
+  position: static;
+}
+
+.nav-cta {
+  border: 2.5px solid rgba(255, 255, 255, 0.45);
+  border-radius: 24px;
+  text-decoration: none;
+  font-family: 'Exo 2', sans-serif;
+  color: #fff;
+  font-size: clamp(12px, 1vw, 16px);
+  padding: clamp(5px, 0.5vw, 7px) clamp(12px, 1.4vw, 20px);
+  transition:
+    color 0.3s ease,
+    border-color 0.3s ease,
+    padding 0.3s ease;
+}
+.nav-cta:hover {
+  color: #52d96a;
+  border-color: #52d96a;
+}
+.nav-cta-scrolled {
+  padding: 6px 10px;
+}
+
+/* ── Hero content layout ───────────────────────────────────────── */
+.hero-content-area {
+  padding-top: var(--nav-h);
+  padding-bottom: var(--strip-h);
+}
+
+.hero-content-inner {
+  padding: 0 clamp(16px, 5vw, 40px);
+  max-width: 900px;
+}
+
+/* ── Status badge ──────────────────────────────────────────────── */
+.hero-badge {
+  gap: clamp(6px, 0.7vw, 10px);
+  border-radius: 28px;
+  padding: clamp(5px, 0.5vw, 7px) clamp(14px, 1.6vw, 22px);
+  margin-bottom: clamp(12px, 1.4vw, 20px);
+}
+
+.hero-badge-dot {
+  width: clamp(7px, 0.7vw, 10px);
+  height: clamp(7px, 0.7vw, 10px);
+  background: #52d96a;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.hero-badge-text {
+  font-size: clamp(12px, 1.1vw, 16px);
+  letter-spacing: 1px;
+  font-family: 'Exo 2', sans-serif;
+}
+
+/* ── Heading ───────────────────────────────────────────────────── */
+.hero-title {
+  font-family: 'Exo 2', sans-serif;
+  font-size: clamp(2.5rem, 7vw, 5.5rem);
+  font-weight: 800;
+  letter-spacing: -1px;
+  line-height: 0.96;
+  margin-bottom: clamp(6px, 0.8vw, 10px);
+}
+
+.hero-title-accent {
+  color: #52d96a;
+}
+
+/* ── Divider bar ───────────────────────────────────────────────── */
+.hero-bar {
+  height: clamp(4px, 0.4vw, 6px);
+  background: #3a7ab5;
+  border-radius: 3px;
+  margin: clamp(10px, 1vw, 14px) auto clamp(14px, 1.4vw, 20px);
+}
+
+/* ── Bio paragraph ─────────────────────────────────────────────── */
+.hero-bio {
+  font-size: clamp(0.875rem, 1.2vw, 1.125rem);
+  max-width: min(620px, 90%);
+  margin-bottom: clamp(20px, 2.5vw, 32px);
+  line-height: 1.68;
+  color: #ffffff9e;
+}
+
+/* ── CTA buttons ───────────────────────────────────────────────── */
+.hero-btn-group {
+  gap: clamp(10px, 1.2vw, 16px);
+}
+
+.hero-btn-primary {
+  background: #52d96a;
+  color: #0d2e10;
+  font-size: clamp(0.8rem, 1.1vw, 1.0625rem);
+  padding: clamp(10px, 1vw, 13px) clamp(22px, 2.5vw, 34px);
+  border-radius: 36px;
+  text-decoration: none;
+  font-weight: 700;
+  font-family: 'Exo 2', sans-serif;
+  transition:
+    background 0.2s,
+    color 0.2s;
+}
+.hero-btn-primary:hover {
+  background: #0d2e10;
+  color: #52d96a;
+}
+
+.hero-btn-secondary {
+  border: 5px solid rgba(255, 255, 255, 0.42);
+  color: #fff;
+  font-size: clamp(0.8rem, 1.1vw, 1.0625rem);
+  padding: clamp(9px, 0.9vw, 12px) clamp(20px, 2.2vw, 32px);
+  border-radius: 36px;
+  text-decoration: none;
+  font-family: 'Exo 2', sans-serif;
+  transition:
+    background 0.2s,
+    color 0.2s;
+}
+.hero-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.42);
+  color: #5b9bd8;
+}
+
+/* ── Scroll indicator ──────────────────────────────────────────── */
+.scroll-indicator {
+  bottom: 96px;
+  right: 40px;
+  background: rgba(255, 255, 255, 0.42);
+  border-radius: 30px;
+  padding: 14px 20px;
+}
+
+.scroll-indicator-inner {
+  gap: 7px;
+}
+
+.scroll-text {
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: #2e6fa3;
+  font-weight: 700;
+}
+
+.scroll-chevron {
+  width: 14px;
+  height: 14px;
+  border-right: 2px solid #2e6fa3;
+  border-bottom: 2px solid #2e6fa3;
+  transform: rotate(45deg);
+}
+
+/* ── Bottom strip ──────────────────────────────────────────────── */
+.bottom-strip {
+  height: var(--strip-h);
+  padding: 0 clamp(16px, 4vw, 52px);
+}
+
+.strip-divider {
+  width: 1px;
+  height: clamp(28px, 3vh, 42px);
+  background: rgba(255, 255, 255, 0.2);
+  margin: 0 clamp(4px, 0.5vw, 6px);
+}
+
+.strip-item {
+  gap: 2px;
+  padding: 0 clamp(8px, 1.2vw, 16px);
+}
+
+.strip-label {
+  font-size: clamp(9px, 0.7vw, 12px);
+  letter-spacing: 2px;
+}
+
+.strip-value {
+  font-weight: 700;
+  font-size: clamp(12px, 1vw, 18px);
+}
+.strip-value-green {
+  color: #52d96a;
+}
+.strip-value-white {
+  color: #fff;
+}
+
+.linkedin-link .linkedin-icon {
+  font-size: clamp(18px, 1.6vw, 26px);
+  color: #fff;
+  transition: color 0.2s;
+}
+.linkedin-link:hover .linkedin-icon {
+  color: #0a66c2;
+}
