@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { FaLinkedin } from 'react-icons/fa';
-import { LINKEDIN_URL } from '../utils/constants';
+import { FaLinkedin, FaGithub } from 'react-icons/fa';
+import { LINKEDIN_URL, GITHUB_URL } from '../utils/constants';
 import '../styles/Hero.css';
 
 export const Green = ({ children }) => (
@@ -267,6 +267,7 @@ function BottomStrip() {
     { label: 'Based In', value: 'New York', mobileHidden: true },
     { label: 'YoE', value: '2 +' },
     { label: 'LinkedIn', linkedin: true },
+    { label: 'GitHub', github: true },
     { label: 'Status', value: 'Open to Work', green: true },
   ];
 
@@ -295,6 +296,15 @@ function BottomStrip() {
                 className="linkedin-link"
               >
                 <FaLinkedin className="linkedin-icon" />
+              </a>
+            ) : item.github ? (
+              <a
+                href={GITHUB_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="github-link"
+              >
+                <FaGithub className="github-icon" />
               </a>
             ) : (
               <span

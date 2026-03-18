@@ -277,3 +277,12 @@
 .linkedin-link:hover .linkedin-icon {
   color: #0a66c2;
 }
+
+.github-link .github-icon {
+  font-size: clamp(18px, 1.6vw, 26px);
+  color: #fff;
+  transition: color 0.2s;
+}
+.github-link:hover .github-icon {
+  color: #6e40c9;
+}

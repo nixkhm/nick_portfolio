@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { fadeUp, geoIn, barGrow } from '../utils/animations';
-import { LINKEDIN_URL } from '../utils/constants';
+import { LINKEDIN_URL, GITHUB_URL } from '../utils/constants';
 import resumePDF from '../assets/resume/Nicholas_Masters_Software_Engineer_Resume_Portfolio.pdf';
 import '../styles/Contact.css';
 
@@ -364,7 +364,27 @@ export default function Contact() {
 
       <motion.p className="con-footer relative z-10" {...fadeUp(0.3)}>
         Designed &amp; built by{' '}
-        <span className="con-footer-name">Nicholas Masters</span>
+        <a
+          href={GITHUB_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="con-footer-name con-footer-link"
+        >
+          Nicholas Masters
+          <svg
+            className="con-footer-outlink"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+            <polyline points="15 3 21 3 21 9" />
+            <line x1="10" y1="14" x2="21" y2="3" />
+          </svg>
+        </a>
       </motion.p>
 
       <motion.p className="con-copyright relative z-10" {...fadeUp(0.34)}>
