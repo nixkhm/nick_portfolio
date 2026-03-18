@@ -166,23 +166,29 @@ function Lightbox({ slides, idx: initialIdx, onClose }) {
   );
 }
 
-function Modal({ project, onClose }) {
+function Modal({ project, onClose, onPrev, onNext, selectedIndex, total: projectTotal }) {
   const [imgIdx, setImgIdx] = useState(0);
   const [lightbox, setLightbox] = useState(false);
   const slides = project.images;
   const total = slides.length;
 
   useEffect(() => {
+    setImgIdx(0);
+  }, [project]);
+
+  useEffect(() => {
     document.body.style.overflow = 'hidden';
     const onKey = (e) => {
       if (e.key === 'Escape') onClose();
+      if (e.key === 'ArrowLeft' && !lightbox) onPrev();
+      if (e.key === 'ArrowRight' && !lightbox) onNext();
     };
     window.addEventListener('keydown', onKey);
     return () => {
       document.body.style.overflow = '';
       window.removeEventListener('keydown', onKey);
     };
-  }, [onClose]);
+  }, [onClose, onPrev, onNext, lightbox]);
 
   return (
     <motion.div
@@ -195,6 +201,21 @@ function Modal({ project, onClose }) {
         if (e.target === e.currentTarget) onClose();
       }}
     >
+      <button
+        className="proj-seek-btn proj-seek-prev"
+        onClick={onPrev}
+        aria-label="Previous project"
+      >
+        ‹
+      </button>
+      <button
+        className="proj-seek-btn proj-seek-next"
+        onClick={onNext}
+        aria-label="Next project"
+      >
+        ›
+      </button>
+
       <motion.div
         className="proj-modal-box"
         initial={{ opacity: 0, scale: 0.97, y: 10 }}
@@ -358,8 +379,26 @@ const ProjectCard = forwardRef(({ project, onClick }, ref) => (
 
 export default function Projects() {
   const [activeCard, setActiveCard] = useState(0);
-  const [selectedProject, setSelectedProject] = useState(null);
+  const [selectedIndex, setSelectedIndex] = useState(null);
   const cardRefs = useRef([]);
+
+  const selectedProject = selectedIndex !== null ? projects[selectedIndex] : null;
+
+  function openProject(i) {
+    setSelectedIndex(i);
+  }
+
+  function closeProject() {
+    setSelectedIndex(null);
+  }
+
+  function prevProject() {
+    setSelectedIndex((i) => (i - 1 + projects.length) % projects.length);
+  }
+
+  function nextProject() {
+    setSelectedIndex((i) => (i + 1) % projects.length);
+  }
 
   function goTo(idx) {
     const clamped = Math.max(0, Math.min(projects.length - 1, idx));
@@ -405,7 +444,7 @@ export default function Projects() {
               key={project.id}
               project={project}
               ref={(el) => (cardRefs.current[i] = el)}
-              onClick={() => setSelectedProject(project)}
+              onClick={() => openProject(i)}
             />
           ))}
         </div>
@@ -451,7 +490,11 @@ export default function Projects() {
         {selectedProject && (
           <Modal
             project={selectedProject}
-            onClose={() => setSelectedProject(null)}
+            onClose={closeProject}
+            onPrev={prevProject}
+            onNext={nextProject}
+            selectedIndex={selectedIndex}
+            total={projects.length}
           />
         )}
       </AnimatePresence>
