@@ -235,10 +235,16 @@ function ResumeModal({ onClose, onToast }) {
         </div>
 
         <div className="con-resume-btns">
-          <button className="con-btn-disabled con-btn-disabled-dl" onClick={downloadResume}>
+          <button
+            className="con-btn-disabled con-btn-disabled-dl"
+            onClick={downloadResume}
+          >
             ⬇ Download PDF
           </button>
-          <button className="con-btn-disabled con-btn-disabled-view" onClick={viewResume}>
+          <button
+            className="con-btn-disabled con-btn-disabled-view"
+            onClick={viewResume}
+          >
             ↗ View Full Screen
           </button>
         </div>

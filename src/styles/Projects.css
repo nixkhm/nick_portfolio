@@ -330,6 +330,29 @@
   margin-bottom: 4px;
 }
 
+.proj-modal-title-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.18s;
+}
+.proj-modal-title-link:hover {
+  color: #52d96a;
+}
+
+.proj-modal-title-icon {
+  width: clamp(14px, 1.4vw, 17px);
+  height: clamp(14px, 1.4vw, 17px);
+  flex-shrink: 0;
+  opacity: 0.7;
+  transition: opacity 0.18s;
+}
+.proj-modal-title-link:hover .proj-modal-title-icon {
+  opacity: 1;
+}
+
 .proj-modal-sub {
   font-size: 11px;
   color: rgba(255, 255, 255, 0.35);

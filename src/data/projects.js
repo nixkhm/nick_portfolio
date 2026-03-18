@@ -12,8 +12,10 @@ import dbr2 from '../assets/3d_reconstruction/3DBR_2.png';
 import dbr3 from '../assets/3d_reconstruction/3DBR_3.png';
 import dbr4 from '../assets/3d_reconstruction/3DBR_4.png';
 
-import ms1 from '../assets/mstevens/mstevens_1.jpg';
-import ms2 from '../assets/mstevens/mstevens_2.jpg';
+import ms1 from '../assets/mstevens/mstevens_1.png';
+import ms2 from '../assets/mstevens/mstevens_2.png';
+import ms3 from '../assets/mstevens/mstevens_3.png';
+import ms4 from '../assets/mstevens/mstevens_4.png';
 
 export const projects = [
   {
@@ -74,10 +76,10 @@ export const projects = [
       'Business website remodel for roofing/construction company, built with 3D animations',
     cardTags: ['React', 'TypeScript'],
     overview:
-      'Business website for a roofing and remodeling company, built as a freelance project to replace outdated site. Focused on strong visual presentation using 3D animations and a polished responsive UI to drive customer leads.',
+      'Modern business website redesign for roofing and remodeling company, replacing legacy website built on Adobe Muse.',
     bullets: [
       'Built interactive 3D roof model using React Three Fiber and Three.js, rendered directly in the browser with custom lighting and camera controls.',
-      'Deployed on Vercel with Next.js App Router, achieving fast page loads with server-side rendering.',
+      'Integrated Google Drive as a Gallery photo backend (via Service Account) to expose an API endpoint to fetch images and subdirectories.',
       'Managed global contact modal state with Zustand and wired contact form to EmailJS.',
     ],
     stack: [
@@ -85,6 +87,7 @@ export const projects = [
       { ico: 'TS', bg: '#3178C6', fg: '#fff', name: 'TypeScript' },
       { ico: '3F', bg: '#000', fg: '#049EF4', name: 'Three.js' },
     ],
-    images: [ms1, ms2],
+    link: 'https://mstevensroofing.vercel.app/',
+    images: [ms1, ms2, ms3, ms4],
   },
 ];
