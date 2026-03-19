@@ -1,0 +1,25 @@
+/* ── Shared geo shape base & position utilities ─────────────────── */
+.geo {
+  position: absolute;
+  width: var(--geo-size);
+  height: var(--geo-size);
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.geo-tl {
+  top: clamp(12px, 2vw, 24px);
+  left: 0;
+}
+.geo-tl-flush {
+  top: 0;
+  left: 0;
+}
+.geo-br {
+  bottom: clamp(12px, 2vw, 24px);
+  right: 0;
+}
+.geo-br-flush {
+  bottom: 0;
+  right: 0;
+}

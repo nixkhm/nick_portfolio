@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { skillGroups } from '../data/skills';
-import { fadeUp, geoIn, barGrow } from '../utils/animations';
+import { fadeUp, barGrow } from '../utils/animations';
+import { GeoTripleTL, GeoDuoLower } from './GeoShapes';
 import { Green } from './Hero';
 import aboutMe1 from '../assets/about_me/about_me_1.jpeg';
 import aboutMe2 from '../assets/about_me/about_me_2.jpg';
+import '../styles/geo.css';
 import '../styles/About.css';
 
 const ABOUT_PHOTOS = [aboutMe1, aboutMe2];
@@ -35,51 +37,6 @@ function PhotoSlideshow() {
       </AnimatePresence>
       <div className="about-photo-tint" />
     </div>
-  );
-}
-
-function GeoTopLeft() {
-  return (
-    <motion.div
-      className="absolute left-0 top-0 overflow-hidden pointer-events-none"
-      style={{ width: 'var(--geo-size)', height: 'var(--geo-size)' }}
-      {...geoIn}
-    >
-      <svg width="100%" height="100%" viewBox="0 0 118 118">
-        <clipPath id="ab_tl">
-          <rect x="0" y="0" width="118" height="118" />
-        </clipPath>
-        <circle cx="0" cy="0" r="108" fill="#3a7ab5" clipPath="url(#ab_tl)" />
-        <circle cx="0" cy="0" r="76" fill="#52D96A" clipPath="url(#ab_tl)" />
-        <circle cx="0" cy="0" r="46" fill="#2e6fa3" clipPath="url(#ab_tl)" />
-      </svg>
-    </motion.div>
-  );
-}
-
-function GeoBottomRight() {
-  return (
-    <motion.div
-      className="absolute right-0 overflow-hidden pointer-events-none about-geo-br"
-      {...geoIn}
-    >
-      <svg width="100%" height="100%" viewBox="0 0 118 118">
-        <clipPath id="ab_bra">
-          <rect x="59" y="59" width="59" height="59" />
-        </clipPath>
-        <circle cx="59" cy="59" r="54" fill="#2e6fa3" clipPath="url(#ab_bra)" />
-        <clipPath id="ab_brb">
-          <rect x="0" y="59" width="59" height="59" />
-        </clipPath>
-        <circle
-          cx="59"
-          cy="118"
-          r="50"
-          fill="#52D96A"
-          clipPath="url(#ab_brb)"
-        />
-      </svg>
-    </motion.div>
   );
 }
 
@@ -116,8 +73,8 @@ export default function About() {
       id="about"
       className="about-section relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden"
     >
-      <GeoTopLeft />
-      <GeoBottomRight />
+      <GeoTripleTL className="geo-tl-flush" />
+      <GeoDuoLower className="geo-br" />
       <motion.div
         className="about-card relative z-10 flex w-full"
         {...fadeUp(0.1)}

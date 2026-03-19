@@ -1,71 +1,11 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { pillByName } from '../data/skills';
-import { fadeUp, geoIn, barGrow } from '../utils/animations';
+import { fadeUp, barGrow } from '../utils/animations';
 import { experiences } from '../data/experiences';
+import { GeoDuoUpper, GeoTripleBR } from './GeoShapes';
+import '../styles/geo.css';
 import '../styles/Experience.css';
-
-function GeoTopRight() {
-  return (
-    <motion.div
-      className="exp-geo-tl absolute left-0 overflow-hidden pointer-events-none"
-      {...geoIn}
-    >
-      <svg width="100%" height="100%" viewBox="0 0 118 118">
-        <clipPath id="exp_tla">
-          <rect x="0" y="0" width="59" height="59" />
-        </clipPath>
-        <circle
-          cx="59"
-          cy="59"
-          r="54"
-          fill="#2e6fa3"
-          clipPath="url(#exp_tla)"
-        />
-        <clipPath id="exp_tlb">
-          <rect x="59" y="0" width="59" height="59" />
-        </clipPath>
-        <circle cx="59" cy="0" r="50" fill="#52D96A" clipPath="url(#exp_tlb)" />
-      </svg>
-    </motion.div>
-  );
-}
-
-function GeoBottomRight() {
-  return (
-    <motion.div
-      className="exp-geo-br absolute right-0 overflow-hidden pointer-events-none"
-      {...geoIn}
-    >
-      <svg width="100%" height="100%" viewBox="0 0 118 118">
-        <clipPath id="exp_br">
-          <rect x="0" y="0" width="118" height="118" />
-        </clipPath>
-        <circle
-          cx="118"
-          cy="118"
-          r="108"
-          fill="#3a7ab5"
-          clipPath="url(#exp_br)"
-        />
-        <circle
-          cx="118"
-          cy="118"
-          r="76"
-          fill="#52D96A"
-          clipPath="url(#exp_br)"
-        />
-        <circle
-          cx="118"
-          cy="118"
-          r="46"
-          fill="#2e6fa3"
-          clipPath="url(#exp_br)"
-        />
-      </svg>
-    </motion.div>
-  );
-}
 
 function ExperiencePill({ pill }) {
   const [hovered, setHovered] = useState(false);
@@ -100,8 +40,8 @@ export default function Experience() {
 
   return (
     <section className="exp-section relative w-full flex flex-col items-center justify-start overflow-hidden">
-      <GeoTopRight />
-      <GeoBottomRight />
+      <GeoDuoUpper className="geo-tl" />
+      <GeoTripleBR className="geo-br" />
       <motion.div
         className="exp-header text-center relative z-10"
         {...fadeUp(0.1)}

@@ -1,71 +1,14 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { fadeUp, geoIn, barGrow } from '../utils/animations';
+import { fadeUp, barGrow } from '../utils/animations';
 import { LINKEDIN_URL, GITHUB_URL } from '../utils/constants';
-import resumePDF from '../assets/resume/Nicholas_Masters_Software_Engineer_Resume_Portfolio.pdf';
+import { GeoDuoUpper, GeoTripleBR } from './GeoShapes';
+import '../styles/geo.css';
 import '../styles/Contact.css';
 
-function GeoTopLeft() {
-  return (
-    <motion.div
-      className="con-geo-tl absolute left-0 overflow-hidden pointer-events-none"
-      {...geoIn}
-    >
-      <svg width="100%" height="100%" viewBox="0 0 118 118">
-        <clipPath id="con_tla">
-          <rect x="0" y="0" width="59" height="59" />
-        </clipPath>
-        <circle
-          cx="59"
-          cy="59"
-          r="54"
-          fill="#2e6fa3"
-          clipPath="url(#con_tla)"
-        />
-        <clipPath id="con_tlb">
-          <rect x="59" y="0" width="59" height="59" />
-        </clipPath>
-        <circle cx="59" cy="0" r="50" fill="#52D96A" clipPath="url(#con_tlb)" />
-      </svg>
-    </motion.div>
-  );
-}
-
-function GeoBottomRight() {
-  return (
-    <motion.div
-      className="con-geo-br absolute right-0 overflow-hidden pointer-events-none"
-      {...geoIn}
-    >
-      <svg width="100%" height="100%" viewBox="0 0 118 118">
-        <clipPath id="con_br">
-          <rect x="0" y="0" width="118" height="118" />
-        </clipPath>
-        <circle
-          cx="118"
-          cy="118"
-          r="108"
-          fill="#3a7ab5"
-          clipPath="url(#con_br)"
-        />
-        <circle
-          cx="118"
-          cy="118"
-          r="76"
-          fill="#52D96A"
-          clipPath="url(#con_br)"
-        />
-        <circle
-          cx="118"
-          cy="118"
-          r="46"
-          fill="#2e6fa3"
-          clipPath="url(#con_br)"
-        />
-      </svg>
-    </motion.div>
-  );
-}
+const EMAIL = import.meta.env.VITE_EMAIL;
+const RESUME_EMBED_URL = import.meta.env.VITE_RESUME_EMBED_URL;
+const RESUME_VIEW_URL = import.meta.env.VITE_RESUME_VIEW_URL;
 
 const LinkedInLogo = () => (
   <svg
@@ -86,9 +29,6 @@ const LinkedInLogo = () => (
     />
   </svg>
 );
-
-const EMAIL = import.meta.env.VITE_EMAIL;
-const RESUME_PATH = resumePDF;
 
 function Toast({ message, visible }) {
   return (
@@ -171,6 +111,8 @@ function EmailPopup({ onClose, onToast }) {
 }
 
 function ResumeModal({ onClose, onToast }) {
+  const [iframeLoaded, setIframeLoaded] = useState(false);
+
   useEffect(() => {
     document.body.style.overflow = 'hidden';
     const onKey = (e) => {
@@ -184,16 +126,8 @@ function ResumeModal({ onClose, onToast }) {
   }, [onClose]);
 
   function viewResume() {
-    window.open(RESUME_PATH + '#zoom=130', '_blank');
-    onToast('Opening resume PDF ↗');
-  }
-
-  function downloadResume() {
-    const a = document.createElement('a');
-    a.href = RESUME_PATH;
-    a.download = 'Nicholas_Masters_Resume.pdf';
-    a.click();
-    onToast('Downloading resume ⬇');
+    window.open(RESUME_VIEW_URL, '_blank');
+    onToast('Opening resume ↗');
   }
 
   return (
@@ -227,20 +161,17 @@ function ResumeModal({ onClose, onToast }) {
         </div>
 
         <div className="con-resume-preview">
-          <embed
-            src={RESUME_PATH + '#navpanes=0&view=Fit'}
-            type="application/pdf"
+          {!iframeLoaded && <div className="con-resume-spin" />}
+          <iframe
+            src={RESUME_EMBED_URL}
             className="con-resume-iframe"
+            frameBorder="0"
+            title="Resume"
+            onLoad={() => setIframeLoaded(true)}
           />
         </div>
 
         <div className="con-resume-btns">
-          <button
-            className="con-btn-disabled con-btn-disabled-dl"
-            onClick={downloadResume}
-          >
-            ⬇ Download PDF
-          </button>
           <button
             className="con-btn-disabled con-btn-disabled-view"
             onClick={viewResume}
@@ -296,9 +227,9 @@ export default function Contact() {
   const [toast, setToast] = useState({ visible: false, message: '' });
   const toastTimer = useRef(null);
 
-  function closeModal() {
+  const closeModal = useCallback(() => {
     setModal(null);
-  }
+  }, []);
 
   function showToast(msg) {
     clearTimeout(toastTimer.current);
@@ -316,8 +247,8 @@ export default function Contact() {
 
   return (
     <section className="con-section relative w-full flex flex-col items-center justify-start overflow-hidden">
-      <GeoTopLeft />
-      <GeoBottomRight />
+      <GeoDuoUpper className="geo-tl" />
+      <GeoTripleBR className="geo-br-flush" />
       <motion.div
         className="con-header text-center relative z-10"
         {...fadeUp(0.1)}

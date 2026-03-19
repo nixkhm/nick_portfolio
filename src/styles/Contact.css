@@ -4,19 +4,6 @@
   padding: clamp(32px, 4vw, 52px) clamp(16px, 5vw, 48px);
 }
 
-/* ── Geo ───────────────────────────────────────────────────────── */
-.con-geo-tl {
-  top: clamp(12px, 2vw, 24px);
-  width: var(--geo-size);
-  height: var(--geo-size);
-}
-
-.con-geo-br {
-  bottom: 0;
-  width: var(--geo-size);
-  height: var(--geo-size);
-}
-
 /* ── Section header ────────────────────────────────────────────── */
 .con-header {
   margin-bottom: clamp(24px, 3vw, 40px);
@@ -291,6 +278,7 @@
 }
 
 .con-resume-preview {
+  position: relative;
   width: 100%;
   height: min(75vh, 900px);
   border-radius: 10px;
@@ -298,6 +286,23 @@
   border: 1px solid rgba(255, 255, 255, 0.1);
   overflow: hidden;
   margin-bottom: 18px;
+}
+
+.con-resume-spin {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 36px;
+  height: 36px;
+  border: 3px solid rgba(255, 255, 255, 0.15);
+  border-top-color: rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+  animation: resume-spin 0.75s linear infinite;
+  z-index: 1;
+}
+
+@keyframes resume-spin {
+  to { transform: rotate(360deg); }
 }
 
 .con-resume-iframe {
