@@ -302,7 +302,9 @@
 }
 
 @keyframes resume-spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .con-resume-iframe {

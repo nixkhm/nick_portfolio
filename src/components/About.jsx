@@ -112,11 +112,6 @@ export default function About() {
             work. Outside of work, I enjoy running and supporting my favorite
             football team Everton from across the pond.
           </motion.p>
-
-          <motion.p className="about-body" {...fadeUp(0.4)}>
-            I'm <Green>actively seeking</Green> my next full stack role, open to
-            opportunities in New York or Remote.
-          </motion.p>
         </div>
       </motion.div>
 

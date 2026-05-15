@@ -276,14 +276,14 @@ export default function Contact() {
           action="Connect ↗"
           onClick={openLinkedIn}
         />
-        <ContactCard
+        {/* <ContactCard
           emoji="📄"
           label="Resume"
           value="View / Download"
           action="Open PDF →"
           green
           onClick={() => setModal('resume')}
-        />
+        /> */}
         <ContactCard
           emoji="✉️"
           label="Email"

@@ -1,6 +1,14 @@
 export const experiences = [
   {
-    id: 'assoc',
+    id: 'assoc_lev',
+    company: 'Leviton',
+    role: 'Associate Software Engineer',
+    date: 'May 2026 → Present',
+    bullets: [],
+    tags: [],
+  },
+  {
+    id: 'assoc_eb',
     company: 'EverBright',
     role: 'Associate Software Engineer',
     date: 'July 2024 → February 2026',
@@ -25,7 +33,7 @@ export const experiences = [
     ],
   },
   {
-    id: 'intern',
+    id: 'intern_eb',
     company: 'EverBright',
     role: 'Software Engineer Intern',
     date: 'May 2023 → August 2023',

@@ -268,7 +268,6 @@ function BottomStrip() {
     { label: 'YoE', value: '2 +' },
     { label: 'LinkedIn', linkedin: true },
     { label: 'GitHub', github: true },
-    { label: 'Status', value: 'Open to Work', green: true },
   ];
 
   return (

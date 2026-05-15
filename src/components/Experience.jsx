@@ -35,7 +35,7 @@ function ExperiencePill({ pill }) {
 }
 
 export default function Experience() {
-  const [active, setActive] = useState('assoc');
+  const [active, setActive] = useState('assoc_lev');
   const activeExp = experiences.find((e) => e.id === active);
 
   return (
